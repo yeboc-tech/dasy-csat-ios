@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		A58853322E36EBE20071367C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A58853132E36EBE10071367C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A588531A2E36EBE10071367C;
+			remoteInfo = "dasy-csat-ios";
+		};
+		A588533C2E36EBE20071367C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A58853132E36EBE10071367C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A588531A2E36EBE10071367C;
+			remoteInfo = "dasy-csat-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A588531B2E36EBE10071367C /* dasy-csat-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dasy-csat-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A58853312E36EBE20071367C /* dasy-csat-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dasy-csat-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A588533B2E36EBE20071367C /* dasy-csat-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dasy-csat-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A58853432E36EBE20071367C /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A588531A2E36EBE10071367C /* dasy-csat-ios */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A588531D2E36EBE10071367C /* dasy-csat-ios */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A58853432E36EBE20071367C /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */,
+			);
+			path = "dasy-csat-ios";
+			sourceTree = "<group>";
+		};
+		A58853342E36EBE20071367C /* dasy-csat-iosTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "dasy-csat-iosTests";
+			sourceTree = "<group>";
+		};
+		A588533E2E36EBE20071367C /* dasy-csat-iosUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "dasy-csat-iosUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A58853182E36EBE10071367C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A588532E2E36EBE20071367C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A58853382E36EBE20071367C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A58853122E36EBE10071367C = {
+			isa = PBXGroup;
+			children = (
+				A588531D2E36EBE10071367C /* dasy-csat-ios */,
+				A58853342E36EBE20071367C /* dasy-csat-iosTests */,
+				A588533E2E36EBE20071367C /* dasy-csat-iosUITests */,
+				A588531C2E36EBE10071367C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A588531C2E36EBE10071367C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A588531B2E36EBE10071367C /* dasy-csat-ios.app */,
+				A58853312E36EBE20071367C /* dasy-csat-iosTests.xctest */,
+				A588533B2E36EBE20071367C /* dasy-csat-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A588531A2E36EBE10071367C /* dasy-csat-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A58853442E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-ios" */;
+			buildPhases = (
+				A58853172E36EBE10071367C /* Sources */,
+				A58853182E36EBE10071367C /* Frameworks */,
+				A58853192E36EBE10071367C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A588531D2E36EBE10071367C /* dasy-csat-ios */,
+			);
+			name = "dasy-csat-ios";
+			packageProductDependencies = (
+			);
+			productName = "dasy-csat-ios";
+			productReference = A588531B2E36EBE10071367C /* dasy-csat-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A58853302E36EBE20071367C /* dasy-csat-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A58853492E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-iosTests" */;
+			buildPhases = (
+				A588532D2E36EBE20071367C /* Sources */,
+				A588532E2E36EBE20071367C /* Frameworks */,
+				A588532F2E36EBE20071367C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A58853332E36EBE20071367C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A58853342E36EBE20071367C /* dasy-csat-iosTests */,
+			);
+			name = "dasy-csat-iosTests";
+			packageProductDependencies = (
+			);
+			productName = "dasy-csat-iosTests";
+			productReference = A58853312E36EBE20071367C /* dasy-csat-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A588533A2E36EBE20071367C /* dasy-csat-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A588534C2E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-iosUITests" */;
+			buildPhases = (
+				A58853372E36EBE20071367C /* Sources */,
+				A58853382E36EBE20071367C /* Frameworks */,
+				A58853392E36EBE20071367C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A588533D2E36EBE20071367C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A588533E2E36EBE20071367C /* dasy-csat-iosUITests */,
+			);
+			name = "dasy-csat-iosUITests";
+			packageProductDependencies = (
+			);
+			productName = "dasy-csat-iosUITests";
+			productReference = A588533B2E36EBE20071367C /* dasy-csat-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A58853132E36EBE10071367C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					A588531A2E36EBE10071367C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					A58853302E36EBE20071367C = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = A588531A2E36EBE10071367C;
+					};
+					A588533A2E36EBE20071367C = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = A588531A2E36EBE10071367C;
+					};
+				};
+			};
+			buildConfigurationList = A58853162E36EBE10071367C /* Build configuration list for PBXProject "dasy-csat-ios" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A58853122E36EBE10071367C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A588531C2E36EBE10071367C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A588531A2E36EBE10071367C /* dasy-csat-ios */,
+				A58853302E36EBE20071367C /* dasy-csat-iosTests */,
+				A588533A2E36EBE20071367C /* dasy-csat-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A58853192E36EBE10071367C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A588532F2E36EBE20071367C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A58853392E36EBE20071367C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A58853172E36EBE10071367C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A588532D2E36EBE20071367C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A58853372E36EBE20071367C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A58853332E36EBE20071367C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A588531A2E36EBE10071367C /* dasy-csat-ios */;
+			targetProxy = A58853322E36EBE20071367C /* PBXContainerItemProxy */;
+		};
+		A588533D2E36EBE20071367C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A588531A2E36EBE10071367C /* dasy-csat-ios */;
+			targetProxy = A588533C2E36EBE20071367C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A58853452E36EBE20071367C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "dasy-csat-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A58853462E36EBE20071367C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "dasy-csat-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A58853472E36EBE20071367C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A58853482E36EBE20071367C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A588534A2E36EBE20071367C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dasy-csat-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dasy-csat-ios";
+			};
+			name = Debug;
+		};
+		A588534B2E36EBE20071367C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dasy-csat-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/dasy-csat-ios";
+			};
+			name = Release;
+		};
+		A588534D2E36EBE20071367C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "dasy-csat-ios";
+			};
+			name = Debug;
+		};
+		A588534E2E36EBE20071367C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8AGL99N4S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "dasy-csat-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A58853162E36EBE10071367C /* Build configuration list for PBXProject "dasy-csat-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A58853472E36EBE20071367C /* Debug */,
+				A58853482E36EBE20071367C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A58853442E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A58853452E36EBE20071367C /* Debug */,
+				A58853462E36EBE20071367C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A58853492E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A588534A2E36EBE20071367C /* Debug */,
+				A588534B2E36EBE20071367C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A588534C2E36EBE20071367C /* Build configuration list for PBXNativeTarget "dasy-csat-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A588534D2E36EBE20071367C /* Debug */,
+				A588534E2E36EBE20071367C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A58853132E36EBE10071367C /* Project object */;
+}
