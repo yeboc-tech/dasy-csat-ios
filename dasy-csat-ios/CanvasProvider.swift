@@ -9,7 +9,8 @@ import PDFKit
 import PencilKit
 
 final class CanvasProvider: NSObject, PDFPageOverlayViewProvider {
-    private var cache: [PDFPage: PKCanvasView] = [:]
+    var cache: [PDFPage: PKCanvasView] = [:]
+    weak var documentViewController: DocumentViewController?
 
     func pdfView(_ pdfView: PDFView, overlayViewFor page: PDFPage) -> UIView? {
         if let existing = cache[page] {
@@ -26,23 +27,14 @@ final class CanvasProvider: NSObject, PDFPageOverlayViewProvider {
             canvas.overrideUserInterfaceStyle = .light
         }
 
-        if let window = pdfView.window,
-           let picker = PKToolPicker.shared(for: window) {
-            picker.addObserver(canvas)
-            picker.setVisible(true, forFirstResponder: canvas)
-            
-            // Force light mode for the tool picker
-            if #available(iOS 13.0, *) {
-                picker.overrideUserInterfaceStyle = .light
-            }
-            
-            // Set the pen color to a specific black that won't adapt to appearance
-            let blackColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-            let blackPen = PKInkingTool(.pen, color: blackColor, width: 1.0)
-            picker.selectedTool = blackPen
-            
-            // Make the canvas the first responder to activate the tool
-            canvas.becomeFirstResponder()
+        // Restore saved drawing if it exists
+        if let canvasPage = page as? CanvasPDFPage, let savedDrawing = canvasPage.drawing {
+            canvas.drawing = savedDrawing
+        }
+
+        // Set up the canvas with the current tool from toolbar
+        if let docVC = documentViewController {
+            docVC.setCurrentCanvas(canvas)
         }
 
         cache[page] = canvas
@@ -53,7 +45,9 @@ final class CanvasProvider: NSObject, PDFPageOverlayViewProvider {
         guard let canvas = overlayView as? PKCanvasView,
               let canvasPage = page as? CanvasPDFPage else { return }
 
+        // Save the drawing to the page
         canvasPage.drawing = canvas.drawing
+        canvasPage.canvasView = nil // Clear the reference to avoid retain cycles
         cache.removeValue(forKey: page)
     }
 } 
