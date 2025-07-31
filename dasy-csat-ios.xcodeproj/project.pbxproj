@@ -30,10 +30,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A58853432E36EBE20071367C /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */ = {
+		A530DFE52E38BC2500831045 /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = A588531A2E36EBE10071367C /* dasy-csat-ios */;
 		};
@@ -43,7 +43,7 @@
 		A588531D2E36EBE10071367C /* dasy-csat-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A58853432E36EBE20071367C /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */,
+				A530DFE52E38BC2500831045 /* Exceptions for "dasy-csat-ios" folder in "dasy-csat-ios" target */,
 			);
 			path = "dasy-csat-ios";
 			sourceTree = "<group>";
@@ -290,13 +290,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8AGL99N4S;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dasy-csat-ios/Info.plist";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "dasy-csat-ios/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,13 +313,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8AGL99N4S;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "dasy-csat-ios/Info.plist";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "dasy-csat-ios/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

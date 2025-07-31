@@ -18,6 +18,7 @@ class OMRMarkingView: UIView {
     private let questionsCount = 25
     private let answersPerQuestion = 5
     private var selectedAnswers: [Int: Int] = [:]
+    private var gradingResult: GradingResult?
     
     override init(frame: CGRect) {
         // Create layout
@@ -109,7 +110,8 @@ extension OMRMarkingView: UICollectionViewDataSource {
             // Question cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCell", for: indexPath) as! OMRQuestionCell
             let questionNumber = indexPath.item
-            cell.configure(questionNumber: questionNumber, selectedAnswer: selectedAnswers[questionNumber])
+            let selectedAnswer = selectedAnswers[questionNumber]
+            cell.configure(questionNumber: questionNumber, selectedAnswer: selectedAnswer, gradingResult: gradingResult)
             cell.delegate = self
             return cell
         }
@@ -163,6 +165,7 @@ extension OMRMarkingView {
     
     func clearAllMarks() {
         selectedAnswers.removeAll()
+        gradingResult = nil
         collectionView.reloadData()
     }
     
@@ -225,6 +228,15 @@ extension OMRMarkingView {
             let color = i % 2 == 0 ? UIColor(hex: "F8F8F8") : UIColor.clear
             colorRow(i - 1, with: color)
         }
+    }
+    
+    /// Show grading results by updating the visual appearance of cells
+    func showGradingResults(result: GradingResult) {
+        // Store the grading result
+        self.gradingResult = result
+        
+        // Reload all data to apply grading styling to all cells
+        collectionView.reloadData()
     }
 }
 
@@ -379,22 +391,74 @@ class OMRQuestionCell: UICollectionViewCell {
         ])
     }
     
-    func configure(questionNumber: Int, selectedAnswer: Int?) {
+    func configure(questionNumber: Int, selectedAnswer: Int?, gradingResult: GradingResult?) {
         self.questionNumber = questionNumber
         questionLabel.text = "\(questionNumber)"
         questionLabel.font = UIFont.systemFont(ofSize: 14, weight: questionNumber % 5 == 0 ? .bold : .medium)
-        questionLabel.backgroundColor = UIColor(hex: "DDDDC0") // Ensure consistent background color
         
         // Show separator for every 5th question (except the last one)
         separatorLine.isHidden = !(questionNumber % 5 == 0 && questionNumber < 25)
         
-        // Update button states
-        for (index, button) in answerButtons.enumerated() {
-            let isSelected = (index + 1) == selectedAnswer
-            button.backgroundColor = isSelected ? .black : .clear
-            button.setTitleColor(isSelected ? .white : UIColor(hex: "DC005B"), for: .normal)
+        // Color question label red for wrong or unanswered questions if grading has been performed
+        if let result = gradingResult {
+            let isWrong = result.incorrectQuestions.contains(questionNumber)
+            let isUnanswered = !result.answers.keys.contains(questionNumber)
+            
+            if isWrong || isUnanswered {
+                // Fill question label with red background
+                questionLabel.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+                questionLabel.textColor = .red
+            } else {
+                // Correct answer - normal appearance
+                questionLabel.backgroundColor = UIColor(hex: "DDDDC0")
+                questionLabel.textColor = UIColor(hex: "00557F")
+            }
+        } else {
+            // No grading - normal appearance
+            questionLabel.backgroundColor = UIColor(hex: "DDDDC0")
+            questionLabel.textColor = UIColor(hex: "00557F")
+        }
+        
+        // Update button states based on grading result if available
+        if let result = gradingResult, let correctAnswer = result.correctAnswerKey[questionNumber] {
+            // Apply grading styling
+            for (index, button) in answerButtons.enumerated() {
+                let answerNumber = index + 1
+                let isSelected = (answerNumber) == selectedAnswer
+                let isCorrect = (answerNumber) == correctAnswer
+                let isUnanswered = selectedAnswer == nil
+                
+                if isSelected {
+                    // User's selected answer should always be black
+                    button.backgroundColor = .black
+                    button.setTitleColor(.white, for: .normal)
+                } else if isCorrect && (isUnanswered || !isSelected) {
+                    // Correct answer not selected or question unanswered - show in red
+                    button.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+                    button.setTitleColor(.red, for: .normal)
+                } else {
+                    // Other answers - normal appearance
+                    button.backgroundColor = .clear
+                    button.setTitleColor(UIColor(hex: "DC005B"), for: .normal)
+                }
+            }
+        } else {
+            // No grading result - apply normal styling
+            for (index, button) in answerButtons.enumerated() {
+                let isSelected = (index + 1) == selectedAnswer
+                button.backgroundColor = isSelected ? .black : .clear
+                button.setTitleColor(isSelected ? .white : UIColor(hex: "DC005B"), for: .normal)
+            }
         }
     }
+    
+    func showGradingResult(result: GradingResult, questionNumber: Int, selectedAnswer: Int?) {
+        // This method is now handled by the configure method
+        // The grading result is stored in OMRMarkingView and applied during cell configuration
+        configure(questionNumber: questionNumber, selectedAnswer: selectedAnswer, gradingResult: result)
+    }
+    
+
     
     @objc private func answerButtonTapped(_ sender: UIButton) {
         delegate?.questionCell(self, didSelectAnswer: sender.tag)

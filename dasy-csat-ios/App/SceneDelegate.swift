@@ -10,13 +10,34 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var coordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        print("DEBUG: SceneDelegate scene willConnectTo called")
+        guard let windowScene = (scene as? UIWindowScene) else { 
+            print("DEBUG: Failed to get windowScene")
+            return 
+        }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = DocumentViewController()
+        print("DEBUG: Created window")
+        
+        // Create navigation controller
+        let navigationController = UINavigationController()
+        print("DEBUG: Created navigation controller")
+        
+        // Initialize coordinator
+        coordinator = AppCoordinator(navigationController: navigationController)
+        print("DEBUG: Created coordinator")
+        
+        // Set root and start coordinator
+        window.rootViewController = navigationController
+        print("DEBUG: Set root view controller")
+        coordinator?.start()
+        print("DEBUG: Started coordinator")
+        
         window.makeKeyAndVisible()
+        print("DEBUG: Made window key and visible")
         self.window = window
     }
 
