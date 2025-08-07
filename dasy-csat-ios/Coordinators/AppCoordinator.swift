@@ -28,9 +28,10 @@ class AppCoordinator: Coordinator {
         print("DEBUG: AppCoordinator set HomeViewController as root")
     }
     
-    func showDocumentView() {
+    func showDocumentView(with document: Document) {
         let documentVC = DocumentViewController()
         documentVC.coordinator = self
+        documentVC.document = document
         navigationController.pushViewController(documentVC, animated: true)
     }
 } 

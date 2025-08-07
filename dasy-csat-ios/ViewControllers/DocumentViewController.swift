@@ -18,8 +18,14 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
     private var currentCanvas: PKCanvasView?
     private var isInitialLoad = true
     
+    // Properties to control visibility of UI elements
+    private var isSaveButtonHidden = true
+    private var isAutoGradingButtonHidden = true
+    private var isOMRCardHidden = true
+    
     weak var coordinator: AppCoordinator?
-
+    var document: Document?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DEBUG: DocumentViewController viewDidLoad called")
@@ -68,8 +74,9 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
         toolbarView.delegate = self
         view.addSubview(toolbarView)
         
-        // Add OMR marking view on the left
+        // Add OMR marking view on the left (hidden by default)
         omrMarkingView.translatesAutoresizingMaskIntoConstraints = false
+        omrMarkingView.isHidden = isOMRCardHidden
         view.addSubview(omrMarkingView)
         
         // Add PDF view
@@ -83,13 +90,13 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
             toolbarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             toolbarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             
-            // OMR marking view on the left
+            // OMR marking view on the left (hidden by default)
             omrMarkingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             omrMarkingView.topAnchor.constraint(equalTo: toolbarView.bottomAnchor),
             omrMarkingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            // PDF view fills the remaining space
-            pdfView.leadingAnchor.constraint(equalTo: omrMarkingView.trailingAnchor),
+            // PDF view fills the remaining space (or full width when OMR is hidden)
+            pdfView.leadingAnchor.constraint(equalTo: isOMRCardHidden ? view.leadingAnchor : omrMarkingView.trailingAnchor),
             pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pdfView.topAnchor.constraint(equalTo: toolbarView.bottomAnchor),
             pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -130,52 +137,31 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
     }
     
     private func loadPDF() {
-        print("DEBUG: Attempting to load PDF file")
-        
-        // Try different paths for the PDF file
-        var pdfURL: URL?
-        
-        // First try: direct path without subdirectory
-        if let url = Bundle.main.url(forResource: "test", withExtension: "pdf") {
-            pdfURL = url
-            print("DEBUG: Found PDF at direct path: \(url)")
+        guard let document = document else {
+            print("DEBUG: No document provided")
+            showError("문서 정보가 없습니다.")
+            return
         }
-        // Second try: with Resources subdirectory
-        else if let url = Bundle.main.url(forResource: "test", withExtension: "pdf", subdirectory: "Resources") {
-            pdfURL = url
-            print("DEBUG: Found PDF in Resources subdirectory: \(url)")
-        }
-        // Third try: with dasy-csat-ios/Resources subdirectory
-        else if let url = Bundle.main.url(forResource: "test", withExtension: "pdf", subdirectory: "dasy-csat-ios/Resources") {
-            pdfURL = url
-            print("DEBUG: Found PDF in dasy-csat-ios/Resources subdirectory: \(url)")
-        }
-        
-        if let url = pdfURL, let doc = PDFDocument(url: url) {
-            print("DEBUG: Successfully loaded PDF document")
-            doc.delegate = self
-            pdfView.document = doc
-            
-            // Ensure PDF scales to fit width after document is loaded
-            DispatchQueue.main.async { [weak self] in
-                self?.scalePDFToFitWidth()
-                if self?.isInitialLoad == true {
-                    self?.goToFirstPage()
-                    self?.isInitialLoad = false
-                }
-            }
-        } else {
-            print("DEBUG: Failed to load PDF document")
-            print("DEBUG: Available bundle resources:")
-            if let resourcePath = Bundle.main.resourcePath {
-                do {
-                    let contents = try FileManager.default.contentsOfDirectory(atPath: resourcePath)
-                    for item in contents {
-                        print("DEBUG: - \(item)")
+        PDFFileService.shared.getPDFURL(for: document) { [weak self] result in
+            switch result {
+            case .success(let url):
+                print("DEBUG: Successfully loaded PDF from: \(url)")
+                if let doc = PDFDocument(url: url) {
+                    doc.delegate = self
+                    self?.pdfView.document = doc
+                    DispatchQueue.main.async {
+                        self?.scalePDFToFitWidth()
+                        if self?.isInitialLoad == true {
+                            self?.goToFirstPage()
+                            self?.isInitialLoad = false
+                        }
                     }
-                } catch {
-                    print("DEBUG: Error listing bundle contents: \(error)")
+                } else {
+                    self?.showError("PDF 문서를 열 수 없습니다.")
                 }
+            case .failure(let error):
+                print("DEBUG: Failed to load PDF: \(error)")
+                self?.showError("PDF를 불러오는 데 실패했습니다: \(error.localizedDescription)")
             }
         }
     }
@@ -316,7 +302,7 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
         // Clear all canvases in the cache
         if let overlayProvider = pdfView.pageOverlayViewProvider as? CanvasProvider {
             print("Clearing \(overlayProvider.cache.count) canvases from cache")
-            for (page, canvas) in overlayProvider.cache {
+            for (_, canvas) in overlayProvider.cache {
                 canvas.drawing = PKDrawing()
                 print("Cleared canvas for page")
             }
@@ -408,37 +394,29 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
         present(loadingAlert, animated: true)
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            do {
-                // Save all current drawings to the PDF pages first
-                self?.saveAllDrawingsToPages()
+            // Save all current drawings to the PDF pages first
+            self?.saveAllDrawingsToPages()
+            
+            // Create a new PDF document with drawings burned in as annotations
+            let newDocument = self?.createPDFWithAnnotations(from: document)
+            
+            if let newDocument = newDocument {
+                // Save to Files app so user can access it
+                let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let savedPDFURL = documentsPath.appendingPathComponent("test_with_drawings.pdf")
                 
-                // Create a new PDF document with drawings burned in as annotations
-                let newDocument = self?.createPDFWithAnnotations(from: document)
+                // Write the new document with annotations to the Documents directory
+                newDocument.write(to: savedPDFURL)
                 
-                if let newDocument = newDocument {
-                    // Save to Files app so user can access it
-                    let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                    let savedPDFURL = documentsPath.appendingPathComponent("test_with_drawings.pdf")
-                    
-                    // Write the new document with annotations to the Documents directory
-                    newDocument.write(to: savedPDFURL)
-                    
-                    DispatchQueue.main.async {
-                        loadingAlert.dismiss(animated: true) {
-                            self?.showSaveSuccessAlertWithShare(savedURL: savedPDFURL)
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        loadingAlert.dismiss(animated: true) {
-                            self?.showSaveErrorAlert(message: "PDF 생성 중 오류가 발생했습니다.")
-                        }
-                    }
-                }
-            } catch {
                 DispatchQueue.main.async {
                     loadingAlert.dismiss(animated: true) {
-                        self?.showSaveErrorAlert(message: "저장 중 오류가 발생했습니다: \(error.localizedDescription)")
+                        self?.showSaveSuccessAlertWithShare(savedURL: savedPDFURL)
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    loadingAlert.dismiss(animated: true) {
+                        self?.showSaveErrorAlert(message: "PDF 생성 중 오류가 발생했습니다.")
                     }
                 }
             }
@@ -567,8 +545,59 @@ class DocumentViewController: UIViewController, PDFDocumentDelegate, ToolbarView
         present(alert, animated: true)
     }
     
-
+    private func showError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        })
+        present(alert, animated: true)
+    }
     
-
-
+    // MARK: - Visibility Control Methods
+    
+    func setSaveButtonHidden(_ hidden: Bool) {
+        isSaveButtonHidden = hidden
+        toolbarView.setSaveButtonHidden(hidden)
+    }
+    
+    func setAutoGradingButtonHidden(_ hidden: Bool) {
+        isAutoGradingButtonHidden = hidden
+        toolbarView.setAutoGradingButtonHidden(hidden)
+    }
+    
+    func setOMRCardHidden(_ hidden: Bool) {
+        isOMRCardHidden = hidden
+        omrMarkingView.isHidden = hidden
+        
+        // Update PDF view constraints when OMR card visibility changes
+        if let pdfLeadingConstraint = view.constraints.first(where: { 
+            $0.firstItem === pdfView && $0.firstAttribute == .leading 
+        }) {
+            pdfLeadingConstraint.isActive = false
+            view.removeConstraint(pdfLeadingConstraint)
+        }
+        
+        let newLeadingConstraint = pdfView.leadingAnchor.constraint(
+            equalTo: hidden ? view.leadingAnchor : omrMarkingView.trailingAnchor
+        )
+        newLeadingConstraint.isActive = true
+        view.addConstraint(newLeadingConstraint)
+        
+        // Animate the change
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func getSaveButtonHidden() -> Bool {
+        return isSaveButtonHidden
+    }
+    
+    func getAutoGradingButtonHidden() -> Bool {
+        return isAutoGradingButtonHidden
+    }
+    
+    func getOMRCardHidden() -> Bool {
+        return isOMRCardHidden
+    }
 } 

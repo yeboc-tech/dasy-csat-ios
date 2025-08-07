@@ -31,6 +31,10 @@ class ToolbarView: UIView {
     
     private var selectedTool: PKTool?
     
+    // Properties to control button visibility
+    private var isSaveButtonHidden = true
+    private var isAutoGradingButtonHidden = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -91,6 +95,7 @@ class ToolbarView: UIView {
         autoGradingButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         autoGradingButton.setTitleColor(.label, for: .normal)
         autoGradingButton.addTarget(self, action: #selector(autoGradingButtonTapped), for: .touchUpInside)
+        autoGradingButton.isHidden = isAutoGradingButtonHidden
         leftStackView.addArrangedSubview(autoGradingButton)
         
         // Setup tool buttons
@@ -103,6 +108,7 @@ class ToolbarView: UIView {
         saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         saveButton.setTitleColor(.systemBlue, for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        saveButton.isHidden = isSaveButtonHidden
         
         // Add pencil and eraser to tool group
         toolGroupStackView.addArrangedSubview(pencilButton)
@@ -215,5 +221,25 @@ class ToolbarView: UIView {
     
     func getCurrentTool() -> PKTool? {
         return selectedTool
+    }
+    
+    // MARK: - Visibility Control Methods
+    
+    func setSaveButtonHidden(_ hidden: Bool) {
+        isSaveButtonHidden = hidden
+        saveButton.isHidden = hidden
+    }
+    
+    func setAutoGradingButtonHidden(_ hidden: Bool) {
+        isAutoGradingButtonHidden = hidden
+        autoGradingButton.isHidden = hidden
+    }
+    
+    func getSaveButtonHidden() -> Bool {
+        return isSaveButtonHidden
+    }
+    
+    func getAutoGradingButtonHidden() -> Bool {
+        return isAutoGradingButtonHidden
     }
 } 

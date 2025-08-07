@@ -95,3 +95,33 @@ iOSInjectionProject/
 # Temporary files
 *.tmp
 *.temp 
+
+# Security and sensitive files
+.env
+*.env
+.env.local
+.env.production
+.env.staging
+secrets.json
+config.json
+credentials.json
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+*.key
+*.pem
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Cursor
+.cursor/
