@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A588531B2E36EBE10071367C /* dasy-csat-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dasy-csat-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A588531B2E36EBE10071367C /* 기출노트.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "기출노트.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58853312E36EBE20071367C /* dasy-csat-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dasy-csat-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A588533B2E36EBE20071367C /* dasy-csat-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dasy-csat-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 		A588531C2E36EBE10071367C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A588531B2E36EBE10071367C /* dasy-csat-ios.app */,
+				A588531B2E36EBE10071367C /* 기출노트.app */,
 				A58853312E36EBE20071367C /* dasy-csat-iosTests.xctest */,
 				A588533B2E36EBE20071367C /* dasy-csat-iosUITests.xctest */,
 			);
@@ -127,7 +127,7 @@
 			packageProductDependencies = (
 			);
 			productName = "dasy-csat-ios";
-			productReference = A588531B2E36EBE10071367C /* dasy-csat-ios.app */;
+			productReference = A588531B2E36EBE10071367C /* 기출노트.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A58853302E36EBE20071367C /* dasy-csat-iosTests */ = {
@@ -288,11 +288,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QBWH6J88MJ;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "dasy-csat-ios/App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "기출 끝내기 - 수능 모의고사 기출문제 한곳에";
+				INFOPLIST_KEY_CFBundleDisplayName = "기출노트";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,7 +301,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "기출노트";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -318,11 +318,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QBWH6J88MJ;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "dasy-csat-ios/App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "기출 끝내기 - 수능 모의고사 기출문제 한곳에";
+				INFOPLIST_KEY_CFBundleDisplayName = "기출노트";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -331,7 +331,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yeboc-tech.dasy-csat-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "기출노트";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
