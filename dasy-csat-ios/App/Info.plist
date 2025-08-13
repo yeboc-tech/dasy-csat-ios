@@ -20,6 +20,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app connects to educational content servers to provide CSAT exam materials.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -47,18 +49,14 @@
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>This app connects to educational content servers to provide CSAT exam materials.</string>
 </dict>
-</plist> 
+</plist>
